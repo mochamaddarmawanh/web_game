@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Game Project Hub</title>
+
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #050814;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 10px 10px;
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            font-size: 16px;
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        .role {
+            margin-top: 2px;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* ===== BACKGROUND STARS ===== */
+        .stars,
+        .stars2,
+        .stars3 {
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            animation: moveStars linear infinite;
+            z-index: -3;
+        }
+
+        .stars {
+            background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 120px 160px, #fff, transparent);
+            animation-duration: 120s;
+            opacity: .6;
+        }
+
+        .stars2 {
+            background-image: radial-gradient(2px 2px at 200px 200px, #88c0ff, transparent);
+            animation-duration: 200s;
+            opacity: .4;
+        }
+
+        .stars3 {
+            background-image: radial-gradient(1px 1px at 400px 300px, #ffb703, transparent);
+            animation-duration: 300s;
+            opacity: .25;
+        }
+
+        @keyframes moveStars {
+            to {
+                transform: translateY(-500px)
+            }
+        }
+
+        /* ===== LAYOUT ===== */
+        h1 {
+            text-align: center;
+            padding: 0px 0px;
+            font-size: 36px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            border-left: 6px solid;
+            padding-left: 15px;
+        }
+
+        .unity .section-title {
+            border-color: #00c3ff
+        }
+
+        .phaser .section-title {
+            border-color: #ffb703
+        }
+
+        .scratch .section-title {
+            border-color: #8ac926
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        /* ===== GAME CARD ===== */
+        .game-card {
+            background: linear-gradient(145deg, #1c2036, #0e1020);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, .8);
+            transition: .25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 35px rgba(255, 255, 255, .2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 32px;
+        }
+
+        .game-card h3 {
+            margin: 8px 0 6px;
+            font-size: 20px;
+        }
+
+        .desc {
+            font-size: 14px;
+            opacity: .8;
+            line-height: 1.4;
+            margin-bottom: 18px;
+        }
+
+        .game-card button {
+            margin-top: auto;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* color theme */
+        .unity button {
+            background: #00c3ff
+        }
+
+        .phaser button {
+            background: #ffb703
+        }
+
+        .scratch button {
+            background: #8ac926
+        }
+
+        /* ===== CLICK PARTICLE ===== */
+        .particle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            pointer-events: none;
+            border-radius: 50%;
+            animation: particle 700ms linear forwards;
+        }
+
+        @keyframes particle {
+            to {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* ===== MOBILE LAYOUT FIX ===== */
+        @media (max-width: 600px) {
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .game-card {
+                padding: 14px;
+            }
+
+            .icon {
+                font-size: 26px;
+            }
+
+            .game-card h3 {
+                font-size: 16px;
+            }
+
+            .desc {
+                font-size: 12px;
+            }
+
+            .game-card button {
+                font-size: 13px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <div class="header">
+        <h1>🎮 GAME PROJECT HUB</h1>
+        <p class="subtitle">by: @mochamad.darmawan (IG)</p>
+        <p class="role">Game and Software Developer & Educator</p>
+    </div>
+
+    <div class="container">
+
+        <!-- UNITY -->
+        <div class="section unity">
+            <div class="section-title">🧩 Unity Projects</div>
+            <div class="game-grid">
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">⚽</div>
+                    </div>
+                    <h3>Guess Footballer</h3>
+                    <div class="desc">Tebak pemain sepak bola berdasarkan petunjuk.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">🏃</div>
+                    </div>
+                    <h3>Endless Run</h3>
+                    <div class="desc">Game lari tanpa akhir dengan rintangan.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">🧠</div>
+                    </div>
+                    <h3>Maze Escape</h3>
+                    <div class="desc">Cari jalan keluar dari labirin.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">🌲</div>
+                    </div>
+                    <h3>Survive in the Forest</h3>
+                    <div class="desc">Bertahan hidup di alam liar.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PHASER -->
+        <div class="section phaser">
+            <div class="section-title">⚡ Phaser 3 Projects</div>
+            <div class="game-grid">
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">💣</div>
+                    </div>
+                    <h3>Bomb Jumper Adventure</h3>
+                    <div class="desc">Platformer arcade, hindari bom dan ambil bintang.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SCRATCH -->
+        <div class="section scratch">
+            <div class="section-title">🐱 Scratch 3 Projects</div>
+            <div class="game-grid">
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">🚀</div>
+                    </div>
+                    <h3>Space Craft</h3>
+                    <div class="desc">Pesawat luar angkasa menghindari musuh.</div>
+                    <a href="scratch-space-craft.html"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">🐉</div>
+                    </div>
+                    <h3>Flappy Dragon</h3>
+                    <div class="desc">Terbang melewati rintangan.</div>
+                    <a href="flappy-dragon.html"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">⬆️</div>
+                    </div>
+                    <h3>Endless Jump</h3>
+                    <div class="desc">Lompat setinggi mungkin tanpa jatuh.</div>
+                    <a href="endless-jump.html"><button>Open</button></a>
+                </div>
+
+                <div class="game-card">
+                    <div class="card-header">
+                        <div class="icon">➕</div>
+                    </div>
+                    <h3>Math Addition</h3>
+                    <div class="desc">Game edukasi penjumlahan.</div>
+                    <a href="#"><button>Open</button></a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("click", e => {
+            for (let i = 0; i < 10; i++) {
+                let p = document.createElement("div");
+                p.className = "particle";
+                p.style.left = e.clientX + "px";
+                p.style.top = e.clientY + "px";
+                p.style.setProperty("--x", (Math.random() - 0.5) * 120 + "px");
+                p.style.setProperty("--y", (Math.random() - 0.5) * 120 + "px");
+                p.style.background =
+                    `radial-gradient(circle,${["#00c3ff","#ffb703","#8ac926"][Math.floor(Math.random()*3)]},transparent)`;
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 700);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
